@@ -10,11 +10,10 @@ page = requests.get("https://www.putlockers.me/search/john%20Wick:%20Chapter%203
 soup = BeautifulSoup(page.content, 'html.parser')
 
 result = soup.find("span", {"class":"mli-quality"}).string
-
-if result == "CAM":
+if "CAM" in result:
     print(datetime.now())
     print("CAM")
-elif result == "HD":
+elif "HD" in result:
     print(datetime.now())
     print("HD")
     sendEmail()
